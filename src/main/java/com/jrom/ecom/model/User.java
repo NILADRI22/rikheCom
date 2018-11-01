@@ -26,6 +26,8 @@ public class User
     private String address1;
     private String address2;
 
+    public User() {
+    }
 
     public User(String password, String userName, String name, String email, String address1) {
         this.password = password;

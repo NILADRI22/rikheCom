@@ -1,6 +1,7 @@
 package com.jrom.ecom.service;
 
 import com.jrom.ecom.datalayer.Login;
+import com.jrom.ecom.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class LoginService
     @Autowired
     Login login;
 
-    public DataSource getDatasource()
+    public User getUserByUsernameAndPassword(String userName, String password)
     {
-       return dataSource;
+       return login.findByUserNameAndPassword(userName,password);
     }
 }

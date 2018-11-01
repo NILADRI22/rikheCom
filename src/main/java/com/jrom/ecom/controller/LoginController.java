@@ -4,9 +4,11 @@ import com.jrom.ecom.model.User;
 import com.jrom.ecom.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 @RestController
 public class LoginController
@@ -14,8 +16,14 @@ public class LoginController
     @Autowired
     LoginService loginService;
 
+    private static Logger log = Logger.getLogger(LoginController.class.getName());
+
 	@RequestMapping("/login")
-	public User login(String userName, String password) throws SQLException {
-        return new User(loginService.getDatasource().getConnection().toString(),"test","test");
+	public User login(@RequestParam(value = "_username") String userName,
+                      @RequestParam(value = "password") String password)
+            throws SQLException
+    {
+       log.info("UserName:"+userName);
+        return loginService.getUserByUsernameAndPassword(userName,password);
 	}
 }
