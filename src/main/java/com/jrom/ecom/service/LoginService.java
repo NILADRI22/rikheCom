@@ -21,14 +21,8 @@ public class LoginService
        return login.findByUserNameAndPassword(userName,password);
     }
 
-    public User getUserByEmail(String email)
+    public User registerUser(String userName, String password, String name, String email, String address1, String address2)
     {
-        return login.findByEmail(email);
+        return login.save(new User(password,userName,name,email,address1,address2));
     }
-    public User getUserByName(String name)
-    {
-        return login.findByName(name);
-    }
-
-
 }
