@@ -14,6 +14,8 @@ public class Item
     private String category;
     private String price;
 
+    public Item() {
+    }
 
     public Item(String title, String category, String price) {
         this.title = title;
