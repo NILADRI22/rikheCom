@@ -1,12 +1,13 @@
 package com.jrom.ecom.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Item
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="item_id")
     private int itemID;
 
     private String title;

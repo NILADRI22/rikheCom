@@ -20,4 +20,15 @@ public class LoginService
     {
        return login.findByUserNameAndPassword(userName,password);
     }
+
+    public User getUserByEmail(String email)
+    {
+        return login.findByEmail(email);
+    }
+    public User getUserByName(String name)
+    {
+        return login.findByName(name);
+    }
+
+
 }
