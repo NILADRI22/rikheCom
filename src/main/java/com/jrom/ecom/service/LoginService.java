@@ -20,4 +20,9 @@ public class LoginService
     {
        return login.findByUserNameAndPassword(userName,password);
     }
+
+    public User registerUser(String userName, String password, String name, String email, String address1, String address2)
+    {
+        return login.save(new User(password,userName,name,email,address1,address2));
+    }
 }
