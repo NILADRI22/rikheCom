@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>CD SHOPPER</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<!-- See configuration in WebMvConfig.java -->
+		<link th:href="@{/bootstrap/css/bootstrap.min.css}"
+			  rel="stylesheet" media="screen"/>
+		<script th:src="@{/jquery/jquery.min.js}"></script>
+		<script th:src="@{/popper/popper.min.js}"></script>
+		<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+		
+		<!-- global styles -->
+		<link th:href="@{css/flexslider.css}" rel="stylesheet"/>
+		<link th:href="@{css/main.css}" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script th:href="@{js/jquery-1.7.2.min.js}"></script>
+		<script th:href="@{js/superfish.js}"></script>
+		<script th:href="@{js/jquery.scrolltotop.js}"></script>
+		<!--[if lt IE 9]>			
+			<script th:href="@{http://html5shim.googlecode.com/svn/trunk/html5.js}"></script>
+			<script th:href="@{js/respond.min.js}"></script>
+		<![endif]-->
+	</head>
+    <body>		
+		<div id="top-bar" class="container">
+			<div class="row">
+				<div class="span4">
+					<form method="POST" class="search_form">
+						<input type="text" class="input-block-level search-query" Placeholder="eg. music">
+					</form>
+				</div>
+				<div class="span8">
+					<div class="account pull-right">
+						<ul class="user-menu">				
+							<li><a href="#">My Account</a></li>
+							<li><a href="cart.html">Your Cart</a></li>
+							<li><a href="checkout.html">Checkout</a></li>					
+							<li><a href="/registerweb">Login</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="wrapper" class="container">
+			<section class="navbar main-menu">
+				<div class="navbar-inner main-menu">				
+					<a href="index.html" class="logo pull-left"><img src="images/logo.png" class="site_logo" alt=""></a>
+					<nav id="menu" class="pull-right">
+						<ul>
+							<li><a href="./music.html">Music</a>
+							</li>															
+							<li><a href="./products.html">Movie</a>
+								<ul>
+									<li><a href="./products.html">Hindi</a></li>									
+									<li><a href="./english.html">English</a></li>
+									<li><a href="./bengali.html">Bengali</a></li>									
+								</ul>
+
+							</li>
+
+							<li><a href="./sports.html">Game</a>
+							</li>							
+							<li><a href="./products.html">Hangbag</a></li>
+							<li><a href="./sports.html">Best Seller</a></li>
+							<li><a href="./english.html">Top Seller</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+			<section  class="homepage-slider" id="home-slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<img src="images/carousel/banner-1.jpg" alt="" />
+						</li>
+						<li>
+							<img src="images/carousel/banner-2.jpg" alt="" />
+							<div class="intro">
+								<h1>Mid season sale</h1>
+								<p><span>Up to 50% Off</span></p>
+								<p><span>On selected items online and in stores</span></p>
+							</div>
+						</li>
+					</ul>
+				</div>			
+			</section>
+			<section class="header_text">
+				We stand for top quality products. Our genuine customer service are always ready to help 24X7. 
+				<br/>Don't miss to use our cheap and best CDs.
+			</section>
+			<section class="main-content">
+				<div class="row">
+					<div class="span12">													
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Feature <strong>Products</strong></span></span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">												
+												<li class="span3">
+													<div class="product-box">
+														<span class="sale_tag"></span>
+														<p><a href="product_detail.html"><img src="images/ladies/1.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Wazir</a><br/>
+														<a href="products.html" class="category">Crime</a>
+														<p class="price">Rs 72</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<span class="sale_tag"></span>
+														<p><a href="product_detail.html"><img src="images/ladies/2.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">1920</a><br/>
+														<a href="products.html" class="category">Horror</a>
+														<p class="price">Rs 130</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/22.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">The Dark Knight rises</a><br/>
+														<a href="english.html" class="category">Fiction</a>
+														<p class="price">Rs 140</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/4.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Rustom</a><br/>
+														<a href="products.html" class="category">Crime</a>
+														<p class="price">Rs 115</p>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="item">
+											<ul class="thumbnails">
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/4444.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">FIFA 19</a><br/>
+														<a href="sports.html" class="category">Sports</a>
+														<p class="price">Rs 220</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/6.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Kill Dill</a><br/>
+														<a href="products.html" class="category">Romance</a>
+														<p class="price">Rs 125</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/7.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Gold</a><br/>
+														<a href="products.html" class="category">Sports</a>
+														<p class="price">Rs 145</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/8.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">MS DHONI</a><br/>
+														<a href="products.html" class="category">Biopic</a>
+														<p class="price">Rs 150</p>
+													</div>
+												</li>																																	
+											</ul>
+										</div>
+									</div>							
+								</div>
+							</div>						
+						</div>
+						<br/>
+						<div class="row">
+							<div class="span12">
+								<h4 class="title">
+									<span class="pull-left"><span class="text"><span class="line">Latest <strong>Products</strong></span></span></span>
+									<span class="pull-right">
+										<a class="left button" href="#myCarousel-2" data-slide="prev"></a><a class="right button" href="#myCarousel-2" data-slide="next"></a>
+									</span>
+								</h4>
+								<div id="myCarousel-2" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">												
+												<li class="span3">
+													<div class="product-box">
+														<span class="sale_tag"></span>
+														<p><a href="product_detail.html"><img src="images/ladies/1111.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">I Want More Football</a><br/>
+														<a href="products.html" class="category">Sports</a>
+														<p class="price">Rs 250</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/cloth/2.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">English Baroque</a><br/>
+														<a href="products.html" class="category">Music</a>
+														<p class="price">Rs 175</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/cloth/3.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Jazbaa</a><br/>
+														<a href="products.html" class="category">Thriller</a>
+														<p class="price">Rs 150</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/cloth/4.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Dragon Blade</a><br/>
+														<a href="products.html" class="category">Fighting</a>
+														<p class="price">Rs 160</p>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="item">
+											<ul class="thumbnails">
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/666666.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Entertainment</a><br/>
+														<a href="music.html" class="category">Comedy</a>
+														<p class="price">Rs 150</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/77.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Wonder Woman</a><br/>
+														<a href="products.html" class="category"> Science Fiction</a>
+														<p class="price">Rs 200</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/44.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Clash Of Titans</a><br/>
+														<a href="products.html" class="category">Action</a>
+														<p class="price">Rs 130</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="images/ladies/333333.jpeg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Veer</a><br/>
+														<a href="products.html" class="category">Action</a>
+														<p class="price">Rs 120</p>
+													</div>
+												</li>																																	
+											</ul>
+										</div>
+									</div>							
+								</div>
+							</div>						
+						</div>
+						<div class="row feature_box">						
+							<div class="span4">
+								<div class="service">
+									<div class="responsive">	
+										<img src="images/feature_img_2.png" alt="" />
+										<h4>MODERN <strong>DESIGN</strong></h4>
+										<p>Our CDs are designed through modern technologies and are available at a cheaper rate.</p>									
+									</div>
+								</div>
+							</div>
+							<div class="span4">	
+								<div class="service">
+									<div class="customize">			
+										<img src="images/feature_img_1.png" alt="" />
+										<h4>FREE <strong>SHIPPING</strong></h4>
+										<p>Our CDs can reach any corner of the country free of cost without any delivery charges.</p>
+									</div>
+								</div>
+							</div>
+							<div class="span4">
+								<div class="service">
+									<div class="support">	
+										<img src="images/feature_img_3.png" alt="" />
+										<h4>24/7 LIVE <strong>SUPPORT</strong></h4>
+										<p>Our customer support team are efficient enough and can be contacted 24hrs if any problem is faced.</p>
+									</div>
+								</div>
+							</div>	
+						</div>		
+					</div>				
+				</div>
+			</section>
+			<section class="our_client">
+				<h4 class="title"><span class="text">Producers</span></h4>
+				<div class="row">					
+					<div class="span2">
+						<a href="#"><img alt="" src="images/clients/14.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="images/clients/35.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="images/clients/1.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="images/clients/2.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="images/clients/3.png"></a>
+					</div>
+					<div class="span2">
+						<a href="#"><img alt="" src="images/clients/4.png"></a>
+					</div>
+				</div>
+			</section>
+			<section id="footer-bar">
+				<div class="row">
+					<div class="span3">
+						<h4>Navigation</h4>
+						<ul class="nav">
+							<li><a href="./index.html">Homepage</a></li>  
+							<li><a href="./about.html">About Us</a></li>
+							<li><a href="./contact.html">Contact Us</a></li>
+							<li><a href="./cart.html">Your Cart</a></li>
+							<li><a href="./register.html">Login</a></li>							
+						</ul>					
+					</div>
+					<div class="span4">
+						<h4>My Account</h4>
+						<ul class="nav">
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+							<li><a href="#">Wish List</a></li>
+						</ul>
+					</div>
+					<div class="span5">
+						<p class="logo"><img src="images/logo.png" class="site_logo" alt=""></p>
+						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+						<br/>
+						<span class="social_icons">
+							<a class="facebook" href="#">Facebook</a>
+							<a class="twitter" href="#">Twitter</a>
+							<a class="skype" href="#">Skype</a>
+							<a class="vimeo" href="#">Vimeo</a>
+						</span>
+					</div>					
+				</div>	
+			</section>
+			<section id="copyright">
+				<span>Copyright 2018 NILADRI CHOWDHURY  All right reserved.</span>
+			</section>
+		</div>
+		<script src="js/common.js"></script>
+		<script src="js/jquery.flexslider-min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(document).ready(function() {
+					$('.flexslider').flexslider({
+						animation: "fade",
+						slideshowSpeed: 4000,
+						animationSpeed: 600,
+						controlNav: false,
+						directionNav: true,
+						controlsContainer: ".flex-container" // the container that holds the flexslider
+					});
+				});
+			});
+		</script>
+    </body>
+</html>

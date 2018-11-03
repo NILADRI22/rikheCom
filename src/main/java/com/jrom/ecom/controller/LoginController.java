@@ -3,10 +3,8 @@ package com.jrom.ecom.controller;
 import com.jrom.ecom.model.User;
 import com.jrom.ecom.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.util.logging.Logger;
@@ -29,16 +27,10 @@ public class LoginController
 	}
 
     @RequestMapping(method= RequestMethod.POST, value = "/register")
-    public User register(
-                            @RequestParam(value = "_username") String userName,
-                            @RequestParam(value = "password") String password,
-                            @RequestParam(value="name") String name,
-                            @RequestParam(value="email") String email,
-                            @RequestParam(value="address1") String address1,
-                            @RequestParam(value="address2") String address2
-                         )
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public User register(@RequestBody User user)
             throws SQLException
     {
-        return loginService.registerUser(userName,password,name,email,address1,address2);
+        return loginService.registerUser(user);
     }
 }

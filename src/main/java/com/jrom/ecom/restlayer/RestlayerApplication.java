@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 @SpringBootApplication
 @EnableJpaRepositories({"com.jrom.ecom.datalayer"})
-@ComponentScan({"com.jrom.ecom","com.jrom.ecom.controller","com.jrom.ecom.service","com.jrom.ecom.model"})
+@ComponentScan({"com.jrom.ecom","com.jrom.ecom.controller","com.jrom.ecom.service","com.jrom.ecom.model,com.jrom.ecom.configuration"})
 @EntityScan("com.jrom.ecom.*")
 public class RestlayerApplication
 {

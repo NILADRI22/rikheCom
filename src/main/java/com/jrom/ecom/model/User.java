@@ -13,11 +13,10 @@ import com.jrom.ecom.datalayer.Login;
  * @author saumadip
  */
 @Entity
-public class User
-{
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
     private String password;
     private String userName;
