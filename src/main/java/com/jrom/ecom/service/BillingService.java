@@ -2,7 +2,8 @@ package com.jrom.ecom.service;
 
 
 
-import com.jrom.ecom.datalayer.Billing;
+import com.jrom.ecom.datalayer.BillingDAO;
+import com.jrom.ecom.model.Billing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,16 +19,16 @@ public class BillingService {
     DataSource dataSource;
 
     @Autowired
-    Billing billing;
+    BillingDAO billingDAO;
 
-    public com.jrom.ecom.model.Billing getBillingByBillId(int billID)
+    public Billing getBillingByBillId(int billID)
     {
-        return billing.findById(billID).get();
+        return billingDAO.findById(billID).get();
     }
 
 
     public com.jrom.ecom.model.Billing billingInfo(BigInteger phone, BigInteger fax, String company, String city, int pincode, String comments) {
-        return billing.save(new com.jrom.ecom.model.Billing(phone, fax, company, city, pincode, comments));
+        return billingDAO.save(new Billing(phone, fax, company, city, pincode, comments));
     }
 
 }

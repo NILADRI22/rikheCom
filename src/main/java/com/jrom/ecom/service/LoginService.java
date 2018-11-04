@@ -1,6 +1,6 @@
 package com.jrom.ecom.service;
 
-import com.jrom.ecom.datalayer.Login;
+import com.jrom.ecom.datalayer.LoginDAO;
 import com.jrom.ecom.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class LoginService
     DataSource dataSource;
 
     @Autowired
-    Login login;
+    LoginDAO login;
 
     public User getUserByUsernameAndPassword(String userName, String password)
     {

@@ -1,7 +1,7 @@
 package com.jrom.ecom.service;
 
 
-import com.jrom.ecom.datalayer.Contact;
+import com.jrom.ecom.datalayer.ContactDAO;
 import com.jrom.ecom.model.ContactUs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ import javax.sql.DataSource;
         DataSource dataSource;
 
         @Autowired
-        Contact contact;
+        ContactDAO contactDAO;
 
-        public com.jrom.ecom.model.ContactUs getContactById (Integer id)
+        public ContactUs getContactById (Integer id)
         {
-            return contact.findById(id).get();
+            return contactDAO.findById(id).get();
         }
 
-        public com.jrom.ecom.model.ContactUs  postContact ( Integer id,String name, String email, String msg)
+        public ContactUs  postContact ( Integer id,String name, String email, String msg)
         {
-            return contact.save(new com.jrom.ecom.model.ContactUs(id, name, email, msg));
+            return contactDAO.save(new ContactUs(id, name, email, msg));
         }
     }
 

@@ -5,10 +5,6 @@ package com.jrom.ecom.model;
 
 import javax.persistence.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.jrom.ecom.datalayer.Login;
-
 /**
  * @author saumadip
  */

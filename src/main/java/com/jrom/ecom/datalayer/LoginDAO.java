@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Login extends CrudRepository<User,Integer>
+public interface LoginDAO extends CrudRepository<User,Integer>
 {
 	User findByUserNameAndPassword(String username, String password);
 	User findByEmail(String email);
