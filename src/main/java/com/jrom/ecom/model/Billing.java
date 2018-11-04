@@ -1,86 +1,60 @@
 package com.jrom.ecom.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.math.BigInteger;
+import java.util.List;
 
 @Entity
-public class Billing
-{
+public class Billing {
     @Id
-    private int iD;
-    private String f_name;
-    private String l_name;
-    private String email;
-    private String phone;
-    private String fax;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "bill_id")
+    private int billID;
+    private BigInteger phone;
+    private BigInteger fax;
     private String company;
-    private String c_id;
-    private String add1;
-    private String add2;
     private String city;
-    private String p_code;
+    private int pinCode;
     private String comments;
+    @OneToMany
+    private List<Orders> orders;
 
-    public Billing(String f_name, String l_name, String email, String phone, String fax, String company, String c_id, String add1, String add2, String city, String p_code, String comments) {
-        this.f_name = f_name;
-        this.l_name = l_name;
-        this.email = email;
+
+    public Billing(BigInteger phone, BigInteger fax, String company, String city, int pincode, String comments) {
+
+    }
+
+    public Billing(int billID, BigInteger phone, BigInteger fax, String company, String city, int pinCode, String comments) {
+        this.billID = billID;
         this.phone = phone;
         this.fax = fax;
         this.company = company;
-        this.c_id = c_id;
-        this.add1 = add1;
-        this.add2 = add2;
         this.city = city;
-        this.p_code = p_code;
+        this.pinCode = pinCode;
         this.comments = comments;
     }
 
-    public int getiD() {
-        return iD;
+    public int getBillID() {
+        return billID;
     }
 
-    public void setiD(int iD) {
-        this.iD = iD;
+    public void setBillID(int billID) {
+        this.billID = billID;
     }
 
-    public String getF_name() {
-        return f_name;
-    }
-
-    public void setF_name(String f_name) {
-        this.f_name = f_name;
-    }
-
-    public String getL_name() {
-        return l_name;
-    }
-
-    public void setL_name(String l_name) {
-        this.l_name = l_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
+    public BigInteger getPhone(BigInteger phone) {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(BigInteger phone) {
         this.phone = phone;
     }
 
-    public String getFax() {
+    public BigInteger getFax(BigInteger fax) {
         return fax;
     }
 
-    public void setFax(String fax) {
+    public void setFax(BigInteger fax) {
         this.fax = fax;
     }
 
@@ -92,30 +66,6 @@ public class Billing
         this.company = company;
     }
 
-    public String getC_id() {
-        return c_id;
-    }
-
-    public void setC_id(String c_id) {
-        this.c_id = c_id;
-    }
-
-    public String getAdd1() {
-        return add1;
-    }
-
-    public void setAdd1(String add1) {
-        this.add1 = add1;
-    }
-
-    public String getAdd2() {
-        return add2;
-    }
-
-    public void setAdd2(String add2) {
-        this.add2 = add2;
-    }
-
     public String getCity() {
         return city;
     }
@@ -124,12 +74,12 @@ public class Billing
         this.city = city;
     }
 
-    public String getP_code() {
-        return p_code;
+    public int getPinCode() {
+        return pinCode;
     }
 
-    public void setP_code(String p_code) {
-        this.p_code = p_code;
+    public void setPinCode(int pinCode) {
+        this.pinCode = pinCode;
     }
 
     public String getComments() {
@@ -138,5 +88,14 @@ public class Billing
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 }
