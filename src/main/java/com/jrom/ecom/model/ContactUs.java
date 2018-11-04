@@ -1,23 +1,33 @@
 package com.jrom.ecom.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
 public class ContactUs {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
+    private Integer id;
     private String name;
     private String email;
     private String msg;
 
 
-    public ContactUs(String name, String email, String msg) {
+    public ContactUs( Integer id,String name, String email, String msg) {
+        this.id=id;
         this.name = name;
         this.email = email;
         this.msg = msg;
 
+    }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -43,6 +53,5 @@ public class ContactUs {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-
 
 }

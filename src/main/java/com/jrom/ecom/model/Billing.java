@@ -2,23 +2,29 @@ package com.jrom.ecom.model;
 
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.List;
 
 @Entity
-public class Billing
-{
+public class Billing {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="bill_id")
+    @Column(name = "bill_id")
     private int billID;
     private BigInteger phone;
     private BigInteger fax;
     private String company;
     private String city;
-    private String pinCode;
+    private int pinCode;
     private String comments;
+    @OneToMany
+    private List<Orders> orders;
 
 
-    public Billing(int billID , BigInteger phone, BigInteger fax, String company, String city, String pinCode, String comments) {
+    public Billing(BigInteger phone, BigInteger fax, String company, String city, int pincode, String comments) {
+
+    }
+
+    public Billing(int billID, BigInteger phone, BigInteger fax, String company, String city, int pinCode, String comments) {
         this.billID = billID;
         this.phone = phone;
         this.fax = fax;
@@ -67,11 +73,12 @@ public class Billing
     public void setCity(String city) {
         this.city = city;
     }
-    public String getPinCode() {
+
+    public int getPinCode() {
         return pinCode;
     }
 
-    public void setPinCode(String pinCode) {
+    public void setPinCode(int pinCode) {
         this.pinCode = pinCode;
     }
 
@@ -81,5 +88,14 @@ public class Billing
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
     }
 }

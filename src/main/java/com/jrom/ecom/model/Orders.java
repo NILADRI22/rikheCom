@@ -2,6 +2,10 @@ package com.jrom.ecom.model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Orders {
@@ -15,7 +19,13 @@ public class Orders {
     private int qty;
     private String orderDate;
     private String orderTime;
-    private int userId;
+
+
+    @OneToMany
+    private Set<Item> items = new HashSet<Item>();
+    @OneToOne
+    private  User user;
+
 
     public Orders() {
     }
@@ -27,7 +37,6 @@ public class Orders {
         this.qty = qty;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
-        this.userId = userId;
     }
 
 
@@ -73,13 +82,21 @@ public class Orders {
     public void setOrderTime(String orderTime) {
         this.orderTime = orderTime;
     }
-    public int getUserId() {
-        return userId;
+
+
+    public Set<Item> getItem() {
+        return items;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setItem(Set<Item> item) {
+        this.items = item;
+    }
+    public User getUser() {
+        return user;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }
