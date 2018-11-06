@@ -22,7 +22,20 @@ public class WebLoginController
     public String register(Model model) throws IOException
     {
         return "register";
-        //String data = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        //return "redirect:/register/"+data;
+
+    }
+
+    @RequestMapping("/getloginform")
+    public String login(Model model) throws IOException
+    {
+        return "login";
+
+    }
+
+    @RequestMapping("/submitregisterform")
+    public String register(HttpServletRequest request) throws IOException
+    {
+        String data = request.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+        return "redirect:/register/"+data;
     }
 }

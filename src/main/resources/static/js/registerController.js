@@ -1,17 +1,53 @@
-var cartApp = angular.module('loginApp', []);
+var app = angular.module('eComApp', ["ngRoute"]);
 
-      cartApp.controller('loginCtrl', function($scope,
-      $http) {
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/ecom", {
+        templateUrl : "index.htm",
+    })
+    .when("/register", {
+        templateUrl : "/web/getregisterform",
+        controller : "regCtrl"
+    })
+    .when("/login", {
+        templateUrl : "/web/getloginform",
+        controller : "loginCtrl"
+    });
+});
 
-          $scope.submit = function(data) {
-              alert(data);
-                  });
-          };
-          $scope.removeFromCart = function(productId) {
-              $http.put('/webstore/rest/cart/remove/' +
-      productId)
-                  .success(function(data) {
-                      $scope.refreshCart($scope.cartId);
-                  });
-          };
-      });
+
+
+app.controller('regCtrl', function($scope, $http)
+{
+    $scope.submit = function()
+    {
+         $http({
+            method : "POST",
+            url : "/register",
+            data: $scope.user
+        }).then(function mySuccess(response) {
+            $scope.myWelcome = response.data;
+        }, function myError(response) {
+            $scope.error = response.statusText;
+        });
+    }
+});
+
+
+app.controller('loginCtrl', function($scope, $http)
+{
+    $scope.login = function()
+    {
+         $http({
+            method : "GET",
+            url : "/login",
+            params: {_username: $scope.user.userName,password:$scope.user.password}
+        }).then(function mySuccess(response) {
+            $scope.myWelcome = response.data;
+            $scope.regLoginDisabled=true;
+            $scope.showLogout=false;
+        }, function myError(response) {
+            $scope.myError = response.statusText;
+        });
+    }
+});

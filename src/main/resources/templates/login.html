@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="/js/registerController.js"></script>
+</head>
+<body>
+<div ng-app="eComApp" ng-controller="loginCtrl">
+
+    <form>
+        <div class="container">
+            <h1>Login</h1>
+            <p>Please enter user pass to login.</p>
+            <hr>
+
+            <label for="username"><b>UserName</b></label>
+            <input type="text" ng-model="user.userName" placeholder="Enter userName" name="_username" required><br>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" ng-model="user.password" placeholder="Enter Password" name="password" required><br>
+
+            <button ng-click="login()">LOGIN</button>
+        </div>
+        <h1>{{myWelcome}}</h1>
+        <h1>{{myError}}</h1>
+    </form>
+</div>
+</body>
+</html>
