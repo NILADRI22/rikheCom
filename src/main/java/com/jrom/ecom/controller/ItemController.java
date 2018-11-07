@@ -10,17 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 public class ItemController
 {
     @Autowired
     ItemService itemService;
-
+    private static Logger log = Logger.getLogger(ItemController.class.getName());
     @RequestMapping("/getallItems")
     public List<Item> getAllItems  ()
             throws SQLException
     {
+        log.info("geting itms");
         return itemService.getAllItem();
     }
 }

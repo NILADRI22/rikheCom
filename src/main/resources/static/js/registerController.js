@@ -12,6 +12,10 @@ app.config(function($routeProvider) {
     .when("/login", {
         templateUrl : "/web/getloginform",
         controller : "loginCtrl"
+    })
+    .when("/item",{
+        templateUrl : "/web/getitem",
+        controller : "itemCtrl"
     });
 });
 
@@ -55,4 +59,20 @@ app.controller('loginCtrl', function($scope, $http,$rootScope)
                  $scope.myError = response.data.status;
         });
     }
+});
+
+app.controller('itemCtrl', function($scope, $http,$rootScope)
+{
+     $http({
+        method : "GET",
+        url : "/getallItems"
+    }).then(function mySuccess(response) {
+        if(response.status === 200 || response.data === "")
+        {
+            $scope.products = response.data;
+        }
+    }, function myError(response) {
+            $scope.myWelcome = response.data.message;
+             $scope.myError = response.data.status;
+    });
 });

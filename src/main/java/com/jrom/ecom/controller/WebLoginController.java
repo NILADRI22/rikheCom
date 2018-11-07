@@ -32,6 +32,13 @@ public class WebLoginController
 
     }
 
+    @RequestMapping("/getitem")
+    public String getItem(Model model) throws IOException
+    {
+        return "item";
+
+    }
+
     @RequestMapping("/submitregisterform")
     public String register(HttpServletRequest request) throws IOException
     {
