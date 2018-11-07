@@ -34,7 +34,7 @@ app.controller('regCtrl', function($scope, $http)
 });
 
 
-app.controller('loginCtrl', function($scope, $http)
+app.controller('loginCtrl', function($scope, $http,$rootScope)
 {
     $scope.login = function()
     {
@@ -43,11 +43,16 @@ app.controller('loginCtrl', function($scope, $http)
             url : "/login",
             params: {_username: $scope.user.userName,password:$scope.user.password}
         }).then(function mySuccess(response) {
-            $scope.myWelcome = response.data;
-            $scope.regLoginDisabled=true;
-            $scope.showLogout=false;
+            if(response.status === 200 || response.data === "")
+            {
+                $scope.myWelcome = response.data;
+                $rootScope.loginDisabled=true;
+                $rootScope.regDisabled=true;
+                $rootScope.showLogout=false;
+            }
         }, function myError(response) {
-            $scope.myError = response.statusText;
+                $scope.myWelcome = response.data.message;
+                 $scope.myError = response.data.status;
         });
     }
 });

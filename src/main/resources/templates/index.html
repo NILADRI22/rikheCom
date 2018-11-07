@@ -7,11 +7,11 @@
 	<script src="/js/registerController.js"></script>
 </head>
 <body>
-<div ng-app="eComApp" ng-init="regLoginDisabled=false;showLogout=true">
+<div ng-app="eComApp" ng-init="regDisabled=false;loginDisabled=false;showLogout=true">
 	<p><a href="#/!">Main</a></p>
 
-	<a ng-disabled="regLoginDisabled" href="#!register">Register</a>
-	<a ng-disabled="regLoginDisabled" href="#!login">Login</a>
+	<a ng-hide="regDisabled" href="#!register">Register</a>
+	<a ng-hide="loginDisabled" href="#!login">Login</a>
 	<a ng-hide="showLogout" href="#!logout">Logout</a>
 
 	<div ng-view></div>
